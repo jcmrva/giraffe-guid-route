@@ -2,14 +2,14 @@
 #r "nuget: FsHttp"
 open FsHttp
 
-// expected 200
+// expected & got 200
 let tryGuid =
     http {
         GET $"http://localhost:5000/try-a-guid/{System.Guid.NewGuid()}"
     }
     |> Request.send
 
-// expected 200
+// expected & got 200
 let tryShortGuid =
     let giraffeIssueExample = "IxC0lRDiNkqa_xsaUWbT-Q"
     http {

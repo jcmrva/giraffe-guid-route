@@ -20,6 +20,7 @@ let errorHandler (ex : Exception) (logger : ILogger) =
 
 let configureApp (app : IApplicationBuilder) =
     app.UseRouting()
+        .UseMiddleware<UnrecognizedGuidHandlerMiddleware>()
         .UseEndpoints(fun e -> e.MapGiraffeEndpoints(endpoints))
         .UseGiraffeErrorHandler(errorHandler)
         |> ignore
